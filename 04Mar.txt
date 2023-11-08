@@ -1,0 +1,128 @@
+Q1. Load the "titanic" dataset using the load_dataset function of seaborn. Use Plotly express to plot a
+scatter plot for age and fare columns in the titanic dataset.
+Ans:- 
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from plotly import express as px
+
+# Load the titanic dataset
+titanic = sns.load_dataset("titanic")
+
+# Plot a scatter plot for age and fare columns
+fig = px.scatter(titanic, x="age", y="fare")
+
+# Add title, labels, and legend to the plot
+fig.add_title("Scatter Plot of Age and Fare on the Titanic")
+fig.add_x_axis("Age")
+fig.add_y_axis("Fare")
+
+# Show the plot
+fig.show()
+
+Q2. Using the tips dataset in the Plotly library, plot a box plot using Plotly express.
+Ans:- import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from plotly import express as px
+
+# Load the tips dataset
+tips = sns.load_dataset("tips")
+
+# Plot a box plot using Plotly Express
+fig = px.box(tips, x="total_bill", y="tip")
+
+# Add title, labels, and legend to the plot
+fig.add_title("Box Plot of Tip Amount by Total Bill")
+fig.add_x_axis("Total Bill")
+fig.add_y_axis("Tip Amount")
+
+# Show the plot
+fig.show()
+
+
+Q3. Using the tips dataset in the Plotly library, Plot a histogram for x= "sex" and y="total_bill" column in
+the tips dataset. Also, use the "smoker" column with the pattern_shape parameter and the "day"
+column with the color parameter.
+Ans:- import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from plotly import express as px
+
+# Load the tips dataset
+tips = sns.load_dataset("tips")
+
+# Plot a histogram for "sex" and "total_bill" columns
+fig = px.histogram(
+    tips,
+    x="sex",
+    y="total_bill",
+    color="day",
+    pattern_shape="smoker",
+    histnorm="density",
+)
+
+# Add title, labels, and legend to the plot
+fig.add_title("Distribution of Total Bill Amount by Sex, Smoker Status, and Day")
+fig.add_x_axis("Sex")
+fig.add_y_axis("Density")
+fig.add_legend("Day")
+
+# Show the plot
+fig.show()
+
+
+Q4. Using the iris dataset in the Plotly library, Plot a scatter matrix plot, using the "species" column for
+the color parameter.
+Note: Use "sepal_length", "sepal_width", "petal_length", "petal_width" columns only with the
+dimensions parameter.
+
+Ans:- import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from plotly import express as px
+
+# Load the iris dataset
+iris = sns.load_dataset("iris")
+
+# Plot a scatter matrix plot using Plotly Express
+fig = px.scatter_matrix(
+    iris,
+    dimensions=["sepal_length", "sepal_width", "petal_length", "petal_width"],
+    color="species",
+)
+
+# Add title to the plot
+fig.add_title("Scatter Matrix Plot of Iris Dataset, Colored by Species")
+
+# Show the plot
+fig.show()
+
+Q5. What is Distplot? Using Plotly express, plot a distplot.
+Ans:- A distplot, short for distribution plot, is a type of graph that visualizes the distribution of a numerical variable. It shows the frequency of different values of the variable, typically using a histogram or a kernel density estimation (KDE) plot.
+
+To plot a distplot using Plotly Express, you can use the px.distplot() function. The function takes one argument: x, which represents the data to be plotted. You can also specify additional parameters to customize the plot, such as the type of distribution plot (histogram or KDE), the bin size for the histogram, and the color of the plot.
+
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+from plotly import express as px
+
+# Load the iris dataset
+iris = sns.load_dataset("iris")
+
+# Plot a distplot of sepal length
+fig = px.distplot(iris, x="sepal_length")
+
+# Add title and labels to the plot
+fig.add_title("Distribution of Sepal Length in Iris Dataset")
+fig.add_x_axis("Sepal Length")
+fig.add_y_axis("Density")
+
+# Show the plot
+fig.show()
